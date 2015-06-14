@@ -3,7 +3,7 @@ uHbench map
 
 **A map of known places where [urban hacker benches](http://xuv.be/uH-bench-open-source-public-bench.html) have been built**
 
-The map: http://xuv.github.io/uhbench-map
+The map: http://xuv.github.io/uhbench-map/map.html
 
 *− Have you built a uHbench? Want to have youn instance on the map?*
 Add an [issue](https://github.com/xuv/uhbench/issues) with the name(s) of the builder(s), location and date
@@ -16,6 +16,8 @@ A workshop and exhibition of the uHbench project has been sceduled at [Constant 
 *−How this map was done?*
 Since it needed to be printed, I was willing to have a full vector file as an output. I also wanted to have an online version of it that could grow easily and be updated as more benches would be built. And since I was lurking D3js for a while now, this seemed a great opportunity to try my hands at it. And I could not be more pleased.
 
+*−Licenses?*
+Except the content of the `d3` & `topopjson` folders, the files of this project are released under a [Free Art License 1.3 ](http://artlibre.org/licence/lal/en/)
 
 Enjoy,
 
