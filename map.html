@@ -24,14 +24,26 @@
                             .rotate([0,0])
 
         var svg = d3.select("body").append('div').attr('id', 'container')
-                        .append("svg")
-                        .attr("width", width)
-                        .attr("height", height);
+                        .append('svg')
+                        .attr('width', width)
+                        .attr('height', height)
+                        //.attr('viewport-fill', 'white') // Only works with SVG 1.2
+
+        /* Background wihte trick until resolved. http://stackoverflow.com/a/11293812/3049530
+        svg.append('rect')
+            .attr('x', -1)
+            .attr('y', -1)
+            .attr('height', width + 2)
+            .attr('width', height + 2)
+            .style('fill', 'white')
+            .style('stroke', 'none')
+            .style('stroke-width', 0 )
+        */
 
         var path = d3.geo.path()
                         .projection(projection);
 
-        var map = svg.append("g").attr('id', 'map');
+        var map = svg.append('g').attr('id', 'map');
 
         // load and display the World
         d3.json("./topojson/examples/world-50m.json", function(error, topology) {
@@ -99,7 +111,7 @@
             var g = svg.selectAll('.infobox')
                         .data(rows.sort(function(a, b){
                             //return Math.abs(a.lat) > Math.abs(b.lat)
-                            return a.lat > b.lat
+                            return a.lat > b.lat ? 1 : -1
                             })
                         )
                         .enter()
