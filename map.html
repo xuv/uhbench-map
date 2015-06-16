@@ -29,17 +29,6 @@
                         .attr('height', height)
                         //.attr('viewport-fill', 'white') // Only works with SVG 1.2
 
-        /* Background wihte trick until resolved. http://stackoverflow.com/a/11293812/3049530
-        svg.append('rect')
-            .attr('x', -1)
-            .attr('y', -1)
-            .attr('height', width + 2)
-            .attr('width', height + 2)
-            .style('fill', 'white')
-            .style('stroke', 'none')
-            .style('stroke-width', 0 )
-        */
-
         var path = d3.geo.path()
                         .projection(projection);
 
