@@ -175,17 +175,19 @@
                 .style('stroke', 'black')
                 .style('stroke-width', 1 )
 
+            var totalBE = g.filter(function(d) { return d.country === 'BE' })[0].length // Just because Belgium locations are going to be displayed in two columns
+
             // Belgium Infoboxes
             g.filter(function(d) { return d.country === 'BE' })
                  .attr("transform", function (d, i) {
-                     if( i < 6 ) {
+                     if( i < totalBE/2 ) {
                         d.boxTranslation = projection( [ -10 , 52 ] )
                         d.boxTranslation[0] -= d.boxWidth
                         d.boxTranslation[1] -= (boxHeight + 10 ) * i
                      } else {
                         d.boxTranslation = projection( [ 12 , 52 ] )
                         // d.boxTranslation[0] -= d.boxWidth
-                        d.boxTranslation[1] -= (boxHeight + 10) * (i-6)
+                        d.boxTranslation[1] -= (boxHeight + 10) * (i- Math.floor(totalBE/2) )
                      }
                     console.log(d.author)
                     return 'translate(' + d.boxTranslation + ')'
