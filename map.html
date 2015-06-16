@@ -60,9 +60,9 @@
         d3.tsv('data.tsv', function (d) {
             return {
                 date: new Date(d.date),
-                author: d.author,
-                location: d.locationName,
-                country: d.countryCode,
+                author: d.author.trim(),
+                location: d.locationName.trim(),
+                country: d.countryCode.trim(),
                 lat: +d.lat,
                 long: +d.long,
                 url: d.url
@@ -187,6 +187,7 @@
                         // d.boxTranslation[0] -= d.boxWidth
                         d.boxTranslation[1] -= (boxHeight + 10) * (i-6)
                      }
+                    console.log(d.author)
                     return 'translate(' + d.boxTranslation + ')'
                 })
 
