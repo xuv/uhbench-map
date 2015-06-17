@@ -2,12 +2,25 @@
     <meta charset="utf-8">
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <style>
-        #container {
+        #container, #info {
             margin: 0 auto;
             max-width: 1489px;
         }
+
+        #info {
+            font-family: PT Sans;
+            font-size: 14px;
+            padding: 1em 30px;
+            max-width: 1429px;
+        }
     </style>
     <body>
+        <div id="container"></div>
+        <div id="info">
+            Built with <a href="http://d3js.org">D3js</a>, this map displays the locations where <a href="http://xuv.be/uH-bench-open-source-public-bench.html">uHbenches</a> have been built.
+            The map is static, as it's purpose was to be printed on a A0 poster for the <a href="http://constantvzw.org/site/-ConstantV-.html">Constant V exibition</a> in Brussels.
+            A build script to convert it to PDF is available in the project's <a href="https://github.com/xuv/uhbench-map">repository</a>. − <a href="http://xuv.be">Julien Deswaef</a>
+        </div>
         <script src="./d3/d3.min.js"></script>
         <script src="./topojson/topojson.js"></script>
         <script>
@@ -23,7 +36,7 @@
                             .scale(800)
                             .rotate([0,0])
 
-        var svg = d3.select("body").append('div').attr('id', 'container')
+        var svg = d3.select("div#container")
                         .append('svg')
                         .attr('width', width)
                         .attr('height', height)
@@ -189,7 +202,6 @@
                         // d.boxTranslation[0] -= d.boxWidth
                         d.boxTranslation[1] -= (boxHeight + 10) * (i- Math.floor(totalBE/2) )
                      }
-                    console.log(d.author)
                     return 'translate(' + d.boxTranslation + ')'
                 })
 
